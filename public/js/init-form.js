@@ -65,48 +65,48 @@ window.addEventListener('load', function () {
 	if (messageModalElement) {
 		var messageModal = new bootstrap.Modal(messageModalElement);
 	}
-	if (messageForm) {
-		messageForm.addEventListener('submit', function(event) {
-			event.preventDefault();
+	// if (messageForm) {
+	// 	messageForm.addEventListener('submit', function(event) {
+	// 		event.preventDefault();
 	
-			// Setup the server API
-			var server = messageForm.getAttribute("action");
-			if (!server) {
-				// You can replace it with your default server
-				server = 'ajaxserver/serverfile.php'
-			}
+	// 		// Setup the server API
+	// 		var server = messageForm.getAttribute("action");
+	// 		if (!server) {
+	// 			// You can replace it with your default server
+	// 			server = 'ajaxserver/serverfile.php'
+	// 		}
 	
-			// Get form input data
-			var name = messageForm.querySelector("#name-message").value;
-			var email = messageForm.querySelector("#email-message").value;
-			var message = messageForm.querySelector("#message-message").value;
-			// Optional : you can add an email verification system here
+	// 		// Get form input data
+	// 		var name = messageForm.querySelector("#name-message").value;
+	// 		var email = messageForm.querySelector("#email-message").value;
+	// 		var message = messageForm.querySelector("#message-message").value;
+	// 		// Optional : you can add an email verification system here
 	
-			var content = {
-				name: name,
-				email: email,
-				message: message,
-				submit_message: 'submit_message',
-			};
-			_sendMessage(content, server);
-		})
-	}
-	function _sendMessage(content, server) {
-		axios.post(server, content)
-			.then(response => {
-				var responseData = response.data;
-				console.log(`POST success`, responseData);
-				subscriptionForm.classList.add('form-success');
-				messageModal.hide();
-				messageForm.querySelectorAll('input, textarea').forEach(function (inputElement) {
-					inputElement.value = '';
-				});
-				// hide form here and replace with a sentence
-			})
-			.catch(error => {
-				console.error(error)
-				subscriptionForm.classList.add('form-error')
-				// notify user about the error here
-			})
-	}
+	// 		var content = {
+	// 			name: name,
+	// 			email: email,
+	// 			message: message,
+	// 			submit_message: 'submit_message',
+	// 		};
+	// 		_sendMessage(content, server);
+	// 	})
+	// }
+	// function _sendMessage(content, server) {
+	// 	axios.post(server, content)
+	// 		.then(response => {
+	// 			var responseData = response.data;
+	// 			console.log(`POST success`, responseData);
+	// 			subscriptionForm.classList.add('form-success');
+	// 			messageModal.hide();
+	// 			messageForm.querySelectorAll('input, textarea').forEach(function (inputElement) {
+	// 				inputElement.value = '';
+	// 			});
+	// 			// hide form here and replace with a sentence
+	// 		})
+	// 		.catch(error => {
+	// 			console.error(error)
+	// 			subscriptionForm.classList.add('form-error')
+	// 			// notify user about the error here
+	// 		})
+	// }
 });

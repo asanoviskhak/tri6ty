@@ -2,6 +2,30 @@ import Head from 'next/head'
 import Script from 'next/script'
 import Image from 'next/image'
 export default function Home() {
+  async function handleOnSubmit(e) {
+    e.preventDefault();
+  
+    const formData = {};
+  
+    Array.from(e.currentTarget.elements).forEach(field => {
+      if ( !field.name ) return;
+      formData[field.name] = field.value;
+    });
+  
+    await fetch('/api/mail', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    }).then(()=>{
+      var messageModalElement = document.getElementById('messageModal');
+	    var messageForm = document.querySelector('#form-message');
+      var mes = document.querySelector(".success-message")
+      mes.hidden = false
+      messageForm.querySelectorAll('input, textarea').forEach(function (inputElement) {
+        inputElement.value = '';
+      });
+      
+    });
+  }
   return (
     <div className="body-page scroll-anim">
       <Head>
@@ -10,10 +34,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-          {/* <div>
+          <div>
             <div className="icon icon-spin" />
             <p>loading</p>
-          </div> */}
+          </div>
           <header className="navbar-top navbar navbar-a navbar-expand-lg navbar-dark">
             <nav className="container-fluid px-0">
               <a className="navbar-brand hide-on-scroll-md" href="#">
@@ -835,7 +859,7 @@ export default function Home() {
                 </div>
               </div>
             </section>
-            <section id="subscribe" className="section section-a section-color-1 ">
+            {/* <section id="subscribe" className="section section-a section-color-1 ">
               <div className="section-body">
                 <div className="section-content container content-width-full anim">
                   <div className="row justify-content-between gy-5">
@@ -873,7 +897,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             <section id="contact" className="section section-a section-color-2">
               <div className="section-title title-anim title-top">
                 <h2 className="text title-font rellax" data-rellax-speed="1.2" data-rellax-percentage="0.5">C.</h2>
@@ -909,18 +933,18 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="popup-body">
-                          <form id="form-message" className="form-a form-message form-message" method="post" action="http://demo.cutekit.net/studiofix/ajaxserver/serverfile.php">
+                          <form id="form-message" className="form-a form-message form-message" method="post" onSubmit={handleOnSubmit}>
                             <div className="mb-3">
                               <label htmlFor="name-message" className="form-label">Name</label>
-                              <input type="text" className="form-control form-control-a" id="name-message" placeholder="Firstname Lastname" required />
+                              <input type="text" className="form-control form-control-a" id="name" name="name" placeholder="Firstname Lastname" required />
                             </div>
                             <div className="mb-3">
                               <label htmlFor="email-message" className="form-label">Email</label>
-                              <input type="email" className="form-control form-control-a" id="email-message" placeholder="your@email.com" required />
+                              <input type="email" className="form-control form-control-a" id="email" name="email" placeholder="your@email.com" required />
                             </div>
                             <div className="mb-3">
                               <label htmlFor="message-message" className="form-label">Message</label>
-                              <textarea className="form-control form-control-b" id="message-message" placeholder="Hello, your message" required defaultValue={""} />
+                              <textarea className="form-control form-control-b" id="message" name="message" placeholder="Hello, your message" required defaultValue={""} />
                             </div>
                             <div className="mt-4">
                               <button className="btn btn-outline btn-black btn-sm rounded-pill" type="submit">
@@ -928,6 +952,9 @@ export default function Home() {
                               </button>
                               <div className="error-show">
                                 <p className>Ooops, an error happened</p>
+                              </div>
+                              <div className="mt-2 success-message" hidden>
+                                <p className="text">Thanks, your message was send! Now you can close the form</p>
                               </div>
                             </div>
                           </form>
