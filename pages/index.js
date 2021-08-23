@@ -35,16 +35,20 @@ export default function Home() {
       </Head>
       <div>
           <div>
-            <div className="icon icon-spin" />
+            <div className="icon icon-spin" >
             <p>loading</p>
+            </div>
           </div>
           <header className="navbar-top navbar navbar-a navbar-expand-lg navbar-dark">
             <nav className="container-fluid px-0">
               <a className="navbar-brand hide-on-scroll-md" href="#">
-                <span className="text ms-2 ms-md-3">
+                <span class="logo">
+                  <img class="light-logo" src="/img/logo.png" alt="Website Template" />
+                </span>
+                {/* <span className="text ms-2 ms-md-3">
                   <span className="line strong">Tri6ty</span>
                   <span className="line sub">360°</span>
-                </span>
+                </span> */}
               </a>
               <button className="navbar-toggler order-lg-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuCollapse" aria-controls="navbarMenuCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="icon icon-menu icon-menu-a">
@@ -134,7 +138,7 @@ export default function Home() {
                       <div className="title-desc">
                         <div className="rellax" data-rellax-speed={1} data-rellax-percentage="0.5">
                           <div data-anim-visible="scale-y-2" data-anim-start="0.75">
-                            <p className="display-subtitle-3 mb-0 anim-1">360 Photo Booths by</p>
+                            <p className="display-subtitle-3 mb-0 anim-1">360° Photo Booths by</p>
                           </div>
                         </div>
                         <div className="rellax" data-rellax-speed={1} data-rellax-percentage="0.5">
