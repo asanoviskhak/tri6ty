@@ -42,8 +42,8 @@ export default function Home() {
           <header className="navbar-top navbar navbar-a navbar-expand-lg navbar-dark">
             <nav className="container-fluid px-0">
               <a className="navbar-brand hide-on-scroll-md" href="#">
-                <span class="logo">
-                  <img class="light-logo" src="/img/logo.png" alt="Website Template" />
+                <span className="logo">
+                  <img className="light-logo" src="/img/logo.png" alt="Website Template" />
                 </span>
                 {/* <span className="text ms-2 ms-md-3">
                   <span className="line strong">Tri6ty</span>
