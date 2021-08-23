@@ -96,7 +96,7 @@ export default function Home() {
             </div>
             <div className="cover-bg video-container">
               <video autoPlay="autoplay" loop="loop" muted="muted" width={640} height={360}>
-                <source src="vid/loop-bg.mp4" type="video/mp4" />
+                <source src="vid/tri6ty.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="cover-bg bg-black opacity-5" />
