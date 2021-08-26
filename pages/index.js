@@ -123,7 +123,7 @@ export default function Home() {
               <Image layout="fill" className="fit" src="/img/bg-default.jpg" alt="cover" />
             </div>
             <div className="cover-bg video-container">
-              <video autoPlay="autoplay" loop="loop" muted="muted" width={640} height={360}>
+              <video autoPlay="autoplay" preload="none" poster="/img/bg-default.jpg" loop="loop" muted="muted" width={640} height={360}>
                 <source src="vid/tri6ty.mp4" type="video/mp4" />
               </video>
             </div>
