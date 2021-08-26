@@ -34,11 +34,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-          <div>
+          {/* <div>
             <div className="icon icon-spin" >
             <p>loading</p>
             </div>
-          </div>
+          </div> */}
           <header className="navbar-top navbar navbar-a navbar-expand-lg navbar-dark">
             <nav className="container-fluid px-0">
               <a className="navbar-brand hide-on-scroll-md" href="#">
